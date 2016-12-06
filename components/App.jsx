@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import ChannelSection from './channels/ChannelSection';
-
+import UserSection from './users/UserSection';
 class App extends Component {
   constructor(props) {
     super(props);
