@@ -16,7 +16,7 @@ class ChannelForm extends Component {
       <form onSubmit={this.onSubmit.bind(this)}>
         <div className="form-group">
           <input 
-            classNmae="form-control"
+            className="form-control"
             placeholder="Add Chanel"
             type="text"
             ref="channel"
