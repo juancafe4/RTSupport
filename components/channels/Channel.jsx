@@ -6,9 +6,8 @@ class Channel extends React.Component {
     setChannel(channel);
   }
   render() {
-    const {channel} this.props;
+    const {channel} = this.props;
     return (
-      const  {channel} = this.props;
       <li>
         <a onClick={this.onClick.bind(this)}>
           {channel.name}

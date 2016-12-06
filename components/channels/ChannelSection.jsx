@@ -3,7 +3,6 @@ import ChannelList from './ChannelList';
 import ChannelForm from './ChannelForm';
 
 class ChannelSection extends Component {
-  onSubmit(e) {
   render() {
     return (
       <div>
