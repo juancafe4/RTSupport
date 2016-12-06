@@ -8,6 +8,7 @@ class App extends Component {
     this.state = {
       channels: [],
       activeChannel: {},
+      users: [],
     }
   }
 
@@ -22,6 +23,13 @@ class App extends Component {
     this.setState({activeChannel})
     // TODO Get Channel messages
   }
+  setUserName(name) {
+    let {users} = this.state;
+    users.push({id: users.length, name});
+    console.log('users ', users)
+    this.setState({users});
+    // TODO server stuff
+  }
   render() {
     return (
       <div className="app">
@@ -31,7 +39,10 @@ class App extends Component {
             addChannel={this.addChannel.bind(this)}
             setChannel={this.setChannel.bind(this)}
           />
-          
+          <UserSection
+            {...this.state}
+            setUserName={this.setUserName.bind(this)}
+          />
         </div>
       </div>
     );

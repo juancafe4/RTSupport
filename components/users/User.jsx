@@ -1,10 +1,9 @@
 import React from 'react';
 class User extends React.Component {
   render() {
-    const {user, activeUser} = this.props;
-    const active = channel === activeChannel ? 'active' : '';
+    const {user} = this.props;
     return (
-      <li className={active}>
+      <li style={{color:"black",}}>
           {user.name}
       </li>
     );

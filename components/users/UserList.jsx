@@ -8,7 +8,7 @@ class UserList extends Component {
         {
           this.props.users.map((user) => {
             return <User
-              channel={user}
+              user={user}
               key={user.id}
             />
           })

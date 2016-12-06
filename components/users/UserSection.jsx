@@ -13,7 +13,7 @@ class UserSection extends Component {
           <UserList 
             {...this.props}
           />
-          <UserFormForm 
+          <UserForm 
             {...this.props}
           />
         </div>
@@ -22,7 +22,7 @@ class UserSection extends Component {
   }
 }
 
-ChannelForm.propTypes = {
+UserSection.propTypes = {
   users: React.PropTypes.array.isRequired,
   setUserName: React.PropTypes.func.isRequired,
 }
