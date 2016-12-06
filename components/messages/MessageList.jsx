@@ -6,7 +6,7 @@ class MessageList extends Component {
     return (
       <ul>
         {
-          this.props.Messages.map((message) => {
+          this.props.messages.map((message) => {
             return <Message
               message={message}
               key={message.id}

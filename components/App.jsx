@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import ChannelSection from './channels/ChannelSection';
 import UserSection from './users/UserSection';
+import MessageSection from './messages/MessageSection'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +11,7 @@ class App extends Component {
       channels: [],
       activeChannel: {},
       users: [],
+      messages: [],
     }
   }
 
@@ -30,6 +33,15 @@ class App extends Component {
     this.setState({users});
     // TODO server stuff
   }
+  addMessage(body) {
+    let {messages, users} = this.state;
+    let createdAt = new Date;
+    let author = users.length > 0 ? users[0].name : 'anonymous';
+    messages.push({id: messages.length, body, createdAt, author});
+
+    this.setState({messages});
+    // TODO server stuff
+  }
   render() {
     return (
       <div className="app">
@@ -42,6 +54,10 @@ class App extends Component {
           <UserSection
             {...this.state}
             setUserName={this.setUserName.bind(this)}
+          />
+          <MessageSection
+            {...this.state}
+            addMessage={this.addMessage.bind(this)}
           />
         </div>
       </div>
