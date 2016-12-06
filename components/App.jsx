@@ -5,14 +5,14 @@ import ChannelSection from './channels/ChannelSection';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state.channels = {
+    this.state = {
       channels: [],
     }
   }
 
   addChannel(name) {
     let {channels} = this.state;
-    channels.push(name);
+    channels.push({id: channels.length, name});
 
     this.setState({channels});
     // TODO server stuff
