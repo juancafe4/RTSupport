@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import ChannelSection from './channels/ChannelSection';
 import UserSection from './users/UserSection';
 import MessageSection from './messages/MessageSection'
-
+import Socket from '../socker.js'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -59,25 +59,16 @@ class App extends Component {
     this.setState({channels});
   }
   componentDidMount() {
-    let ws = this.ws = new WebSocket('ws://echo.websocket.org');
-    ws.onmessage = this.message.bind(this);
-    ws.onopen = this.open.bind(this);
-    ws.onclose = this.close.bind(this);
-
+    let socket = this.socket = new Socket();
+    socket.on('connect', this.onConnect.bind(this));
+    socket.on('disconnect', this.onDisconnect.bind(this));
   }
 
-  message(e) {
-    const event = JSON.parse(e.data);
-
-    if (event.name === 'channel add') {
-      this.newChannel(event.data);
-    }
+  onConnect() {
+    this.setState({connected: true});
   }
-  open() {
-    this.setState({connected: true})
-  }
-  close() {
-    this.setState({connected: false})
+  disConnect() {
+    this.setState({connected: false});
   }
   render() {
     return (
