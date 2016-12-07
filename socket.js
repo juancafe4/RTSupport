@@ -1,4 +1,4 @@
-import {EventEmitter} from 'event';
+import {EventEmitter} from 'events';
 
 class Socket {
   constructor(ws = new WebSocket(), ee = new EventEmitter) {
@@ -24,7 +24,7 @@ class Socket {
       const message = JSON.parse(e.data);
       this.ee.emit(message.name. message.data);
     } catch(err) {
-      this.ee.emit.('error', err);
+      this.ee.emit('error', err);
     }
   }
   open() {

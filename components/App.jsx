@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import ChannelSection from './channels/ChannelSection';
 import UserSection from './users/UserSection';
 import MessageSection from './messages/MessageSection'
-import Socket from '../socker.js'
+import Socket from '../socket'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ class App extends Component {
     socket.on('user remove', this.onRemoveUser.bind(this));
     socket.on('message add', this.onAddMessage.bind(this));
   }
-  
+
   onMessageAdd(message) {
     let {messages} = this.state;
     messages.push(message);
